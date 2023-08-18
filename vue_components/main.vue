@@ -1,15 +1,13 @@
 <template>
     <main>  
         <section class="banner">
-            <div class="banner-image">
-                <img id="banner-image1" src="https://dathienson.bizfly.site/upload/banner/thumb_1920x0/banner-trang-chu-1-1683252533.png" alt="">
-                <img id="banner-image2" src="https://dathienson.bizfly.site/upload/banner/thumb_1920x0/banner-2-1-1684205715.png" alt="" style="display: none;">
+            <div class="banner-image-list">
+                <img class="banner-image" src="https://dathienson.bizfly.site/upload/banner/thumb_1920x0/banner-trang-chu-1-1683252533.png" alt="">
+                <img class="banner-image" src="https://dathienson.bizfly.site/upload/banner/thumb_1920x0/banner-2-1-1684205715.png" alt="" style="display: none;">
                 <div class="swip-pagination">
-                    <span id="page1" role="button">
-                        1
+                    <span class="active" id="page1" role="button" onclick="changeBannerSlide(0)">
                     </span>
-                    <span id="page2" role="button">
-                        2
+                    <span class="inactive" id="page2" role="button" onclick="changeBannerSlide(1)">
                     </span>
                 </div>
             </div>
@@ -83,21 +81,21 @@
 
                 <div class="slide">
                     <div class="pictures">
-                        <img id="slide-img1" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/rectangle-1493png-1684208175.png" alt="">
-                        <img id="slide-img2" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/img-constructionpng-1683605794.png" alt="" style="display: none;">
-                        <img id="slide-img3" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/rectangle-1494-1png-1684207976.png" alt="" style="display: none;">
-                        <img id="slide-img4" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/rectangle-1491png-1684379025.png" alt="" style="display: none;">
+                        <img class="slide-img" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/rectangle-1493png-1684208175.png" alt="">
+                        <img class="slide-img" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/img-constructionpng-1683605794.png" alt="" style="display: none;">
+                        <img class="slide-img" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/rectangle-1494-1png-1684207976.png" alt="" style="display: none;">
+                        <img class="slide-img" src="https://dathienson.bizfly.site/upload/staticpage/thumb_1230x0/rectangle-1491png-1684379025.png" alt="" style="display: none;">
                     </div>
                     <div class="pagination">
-                        <img id="prev-pic" src="https://dathienson.bizfly.site/template/images/navred-circle-bgwhite-prev.svg" alt="">
+                        <img id="prev-pic" onclick="changeImgSlide('prev')" src="https://dathienson.bizfly.site/template/images/navred-circle-bgwhite-prev.svg" alt="" style="opacity: 0.5;">
                         <div class="page">
-                            <div class="current-page">
-                                
+                            <div id="current-img-page">
+                                01
                             </div> / 
                             <div class="max-page">04
                             </div>
                         </div>
-                        <img id="next-pic" src="https://dathienson.bizfly.site/template/images/navred-circle-bgwhite-next.svg" alt="">
+                        <img id="next-pic" onclick="changeImgSlide('next')"  src="https://dathienson.bizfly.site/template/images/navred-circle-bgwhite-next.svg" alt="">
                     </div>
                 </div>
             <!-- </div> -->
@@ -106,26 +104,27 @@
         <section class="slide-intro">
             <div class="slide">
                 <div class="text">
-                    <div id="text1">
+                    <div class="text-slider">
                         Sứ mệnh của chúng tôi là: sáng tạo không ngừng - vững vàng chuyên nghiệp, sử dụng hiệu quả nguồn tài nguyên quí giá, những kiệt tác mà thiên nhiên đã ban tặng phục vụ nhu cầu ngày càng lớn, yêu cầu ngày càng cao cấp của quý khách, mang lại lợi nhuận cho công ty và đóng góp xây dựng sự phồn vinh xã hội. Chúng tôi gọi đó là: "Giải pháp vì thiên nhiên và con người"
                     </div>
-                    <div id="text2" style="display: none;">
+                    <div class="text-slider" style="display: none;">
                         Sứ mệnh thứ 2 của chúng tôi là: sáng tạo không ngừng - vững vàng chuyên nghiệp, sử dụng hiệu quả nguồn tài nguyên quí giá, những kiệt tác mà thiên nhiên đã ban tặng phục vụ nhu cầu ngày càng lớn, yêu cầu ngày càng cao cấp của quý khách, mang lại lợi nhuận cho công ty và đóng góp xây dựng sự phồn vinh xã hội. Chúng tôi gọi đó là: "Giải pháp vì thiên nhiên và con người"
                     </div>
 
-                    <div id="text3" style="display: none;">
+                    <div class="text-slider" style="display: none;">
                         Sứ mệnh thứ 3 của chúng tôi là: sáng tạo không ngừng - vững vàng chuyên nghiệp, sử dụng hiệu quả nguồn tài nguyên quí giá, những kiệt tác mà thiên nhiên đã ban tặng phục vụ nhu cầu ngày càng lớn, yêu cầu ngày càng cao cấp của quý khách, mang lại lợi nhuận cho công ty và đóng góp xây dựng sự phồn vinh xã hội. Chúng tôi gọi đó là: "Giải pháp vì thiên nhiên và con người"
                     </div>
                 </div>
                 <div class="pagination">
                     <div class="page">
-                        <div class="current-page">
-                            
+                        <div id="current-text-page">
+                            01
+                            <!-- 0{{textSlideIndex + 1}} -->
                         </div> / 
                         <div class="max-page">03
                         </div>
                     </div>
-                    <div class="next-btn">
+                    <div class="next-btn" onclick="changeTextSlide()">
                         <img src="https://dathienson.bizfly.site/template/images/nav-next-bgred.svg" alt="">
                     </div>
                 </div>
