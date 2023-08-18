@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'SVN-Rockness';
+	src: url('../fonts/svn-rockness/SVN-Rockness.woff2') format('woff2'),
+		url('../fonts/svn-rockness/SVN-Rockness.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
